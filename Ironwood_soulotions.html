@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Ironwood Solutions – CNC & Metal Machines</title>
+    <link rel="stylesheet" href="Ironwood_soulotions.css">
+    <script src="Ironwood_soulotions.js"></script>
+</head>
+
+<body>
+
+<h1>Ironwood Solutions</h1>
+<h3>Request a Machine Quote</h3>
+
+<form onsubmit="return generateText()">
+
+<table>
+
+    <tr>
+        <td>Full Name:</td>
+        <td><input type="text" id="fname"></td>
+    </tr>
+
+    <tr>
+        <td>Phone:</td>
+        <td><input type="text" id="phone"></td>
+    </tr>
+
+    <tr>
+        <td>Email:</td>
+        <td><input type="text" id="email"></td>
+    </tr>
+
+    <tr>
+        <td>Machine Type:</td>
+        <td>
+            <select id="lang">
+                <option value="">Select</option>
+                <option value="CNC Wood Router">CNC Wood Router</option>
+                <option value="Metal CNC Lathe">Metal CNC Lathe</option>
+                <option value="Edge Banding Machine">Edge Banding Machine</option>
+                <option value="Iron Bending Machine">Iron Bending Machine</option>
+                <option value="Laser Cutting Machine">Laser Cutter</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Message:</td>
+        <td><textarea id="msg" rows="4" cols="35"></textarea></td>
+    </tr>
+
+    <tr>
+        <td>Education:</td>
+        <td>
+            <input type="checkbox" name="edu" value="Practical Engineer"> Practical Engineer
+            <input type="checkbox" name="edu" value="Technician"> Technician
+            <input type="checkbox" name="edu" value="Engineer"> Engineer
+        </td>
+    </tr>
+
+    <tr>
+        <td>Experience:</td>
+        <td>
+            <input type="radio" name="exp" value="Beginner"> 0-2 yrs
+            <input type="radio" name="exp" value="Intermediate"> 3-6 yrs
+            <input type="radio" name="exp" value="Expert"> 7+ yrs
+        </td>
+    </tr>
+
+</table>
+
+<br>
+
+<input type="submit" value="Send">
+<input type="button" value="Clear" onclick="clearForm()">
+
+</form>
+
+<h3>Your Quote Summary:</h3>
+
+<p id="res"></p>
+
+<h3>Machine Catalog</h3>
+
+<table>
+    <tr>
+        <th>Machine</th>
+        <th>Power</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>CNC Wood Router</td>
+        <td>3.0 kW</td>
+        <td>22,000 </td>
+    </tr>
+    <tr>
+        <td>Iron Bending Machine</td>
+        <td>Hydraulic</td>
+        <td>35,000 </td>
+    </tr>
+    <tr>
+        <td>Laser Cutter</td>
+        <td>60W CO2</td>
+        <td>18,500 </td>
+    </tr>
+</table>
+
+</body>
+</html>
