@@ -1,110 +1,151 @@
 <!DOCTYPE html>
 <html>
-<head>
-
+  <head>
     <title>Ironwood Solutions – CNC & Metal Machines</title>
-    <link rel="stylesheet" href="Ironwood_soulotions.css">
-    <script src="Ironwood_soulotions.js"></script>
-</head>
+    <link rel="stylesheet" href="Ironwood_solutions.css" />
+    <script src="Ironwood_solutions.js"></script>
+  </head>
 
-<body>
+  <body>
+    <h3>Request a Machine</h3>
 
-<h1>Ironwood Solutions</h1>
-<h3>Request a Machine Quote</h3>
+    <form onsubmit="return generateText()">
+      <table>
+        <tr>
+          <td>Full Name:</td>
+          <td><input type="text" id="fname" required /></td>
+        </tr>
 
-<form onsubmit="return generateText()">
-
-<table>
-
-    <tr>
-        <td>Full Name:</td>
-        <td><input type="text" id="fname"></td>
-    </tr>
-
-    <tr>
-        <td>Phone:</td>
-        <td><input type="text" id="phone"></td>
-    </tr>
-
-    <tr>
-        <td>Email:</td>
-        <td><input type="text" id="email"></td>
-    </tr>
-
-    <tr>
-        <td>Machine Type:</td>
-        <td>
-            <select id="lang">
-                <option value="">Select</option>
-                <option value="CNC Wood Router">CNC Wood Router</option>
-                <option value="Metal CNC Lathe">Metal CNC Lathe</option>
-                <option value="Edge Banding Machine">Edge Banding Machine</option>
-                <option value="Iron Bending Machine">Iron Bending Machine</option>
-                <option value="Laser Cutting Machine">Laser Cutter</option>
+        <tr>
+          <td>Phone:</td>
+          <td class="phone-container">
+            <select id="prefixes">
+              <option value="050">050</option>
+              <option value="052">052</option>
+              <option value="053">053</option>
+              <option value="054">054</option>
             </select>
-        </td>
-    </tr>
 
-    <tr>
-        <td>Message:</td>
-        <td><textarea id="msg" rows="4" cols="35"></textarea></td>
-    </tr>
+            <input
+              type="text"
+              id="phone"
+              maxlength="7"
+              pattern="\d{7}"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+              required
+            />
+          </td>
+        </tr>
 
-    <tr>
-        <td>Education:</td>
-        <td>
-            <input type="checkbox" name="edu" value="Practical Engineer"> Practical Engineer
-            <input type="checkbox" name="edu" value="Technician"> Technician
-            <input type="checkbox" name="edu" value="Engineer"> Engineer
-        </td>
-    </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="email" id="email" required /></td>
+        </tr>
 
-    <tr>
-        <td>Experience:</td>
-        <td>
-            <input type="radio" name="exp" value="Beginner"> 0-2 yrs
-            <input type="radio" name="exp" value="Intermediate"> 3-6 yrs
-            <input type="radio" name="exp" value="Expert"> 7+ yrs
-        </td>
-    </tr>
+        <tr>
+          <td>Machine Type:</td>
+          <td>
+            <select id="machineType">
+              <option value="">Select</option>
+              <option value="CNC Wood Router">CNC Wood Router</option>
+              <option value="Metal CNC Lathe">Metal CNC Lathe</option>
+              <option value="Edge Banding Machine">Edge Banding Machine</option>
+              <option value="Iron Bending Machine">Iron Bending Machine</option>
+              <option value="Laser Cutting Machine">Laser Cutter</option>
+            </select>
+          </td>
+        </tr>
 
-</table>
+        <tr>
+          <td>Message:</td>
+          <td><textarea id="msg" rows="4" cols="35"></textarea></td>
+        </tr>
 
-<br>
+        <tr>
+          <td>Client Type:</td>
+          <td id="cType-radio">
+            <input type="radio" name="cType" value="Private" required /> Private
+            <input type="radio" name="cType" value="Factory" /> Factory
+            <input type="radio" name="cType" value="Dealer" /> Dealer
+          </td>
+        </tr>
+      </table>
 
-<input type="submit" value="Send">
-<input type="button" value="Clear" onclick="clearForm()">
+      <br />
+      <input type="submit" id="send" value="Send" />
+      <input type="button" id="clear" value="Clear" onclick="clearForm()" />
+    </form>
 
-</form>
+    <h3>Client Request Summary:</h3>
 
-<h3>Your Quote Summary:</h3>
+    <p id="res"></p>
 
-<p id="res"></p>
+    <h3>Machine Catalog</h3>
 
-<h3>Machine Catalog</h3>
-
-<table>
-    <tr>
+    <table>
+      <tr>
         <th>Machine</th>
+        <th>Image</th>
         <th>Power</th>
         <th>Price</th>
-    </tr>
-    <tr>
-        <td>CNC Wood Router</td>
+      </tr>
+      <tr>
+        <td>
+          <abbr
+            id="machine-abbr"
+            title="A CNC Router is a computer-controlled machine used to cut, carve, and shape materials like wood, plastic, and aluminum with high precision."
+          >
+            CNC Wood Router
+          </abbr>
+        </td>
+        <td>
+          <img
+            src="images/CNC ROUTER.png.webp"
+            class="myImg"
+            alt="CNC Router"
+          />
+        </td>
         <td>3.0 kW</td>
-        <td>22,000 </td>
-    </tr>
-    <tr>
-        <td>Iron Bending Machine</td>
+        <td>22,000</td>
+      </tr>
+      <tr>
+        <td>
+          <abbr
+            id="machine-abbr"
+            title="An Iron Bending Machine is a mechanical or hydraulic tool used to bend and shape metal bars, pipes, or sheets with accuracy and consistency."
+          >
+            Iron Bending Machine
+          </abbr>
+        </td>
+        <td>
+          <img
+            src="images/ironbending.jpg"
+            class="myImg"
+            alt="ironbending"
+          />
+        </td>
         <td>Hydraulic</td>
-        <td>35,000 </td>
-    </tr>
-    <tr>
-        <td>Laser Cutter</td>
+        <td>35,000</td>
+      </tr>
+      <tr>
+        <td>
+          <abbr
+            id="machine-abbr"
+            title="A Laser Cutter is a machine that uses a focused laser beam to cut or engrave materials like wood, acrylic, plastic, and metal with high precision."
+          >
+            Laser Cutter
+          </abbr>
+        </td>
+        <td>
+          <img
+            src="images/LS1390-Pro-Laser.jpg"
+            class="myImg"
+            alt="Pro Laser"
+          />
+        </td>
         <td>60W CO2</td>
-        <td>18,500 </td>
-    </tr>
-</table>
-
-</body>
+        <td>18,500</td>
+      </tr>
+    </table>
+  </body>
 </html>
